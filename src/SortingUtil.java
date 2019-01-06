@@ -10,19 +10,23 @@ public class SortingUtil {
 
     public static int[] bubbleSort(int[] arr)
     {
-        int lastSwap = arr.length-1;
-        while(SortingUtil.sorted(arr)==false)
+        boolean sorted= SortingUtil.sorted(arr);
+        int lastSwap = arr.length;
+        int lastSwapTemp=0;
+        while(sorted==false)
         {
             for(int i=0; i<lastSwap; i++)
             {
-                if(i!=arr.length)
-                {
-                    if(arr[i]>arr[i+1]) {
+                if(i+1!=arr.length) {
+                    if (arr[i] > arr[i + 1]) {
                         SortingUtil.swap(arr, i, i + 1);
-                        lastSwap = i;
                     }
                 }
+                lastSwapTemp=i;
             }
+            lastSwap=lastSwapTemp;
+              sorted=SortingUtil.sorted(arr);
+
         }
         return arr;
     }
@@ -30,12 +34,13 @@ public class SortingUtil {
     public static boolean sorted(int[] arr)
     {
         boolean result=true;
-        for(int i =0; i <arr.length-1; i++)
+        for(int i =0; i <arr.length; i++)
         {
-            if(arr[i] > arr[i+1])
-            {
-                result=false;
-                break;
+            if(i+1!=arr.length) {
+                if (arr[i] > arr[i + 1]) {
+                    result = false;
+                    break;
+                }
             }
         }
         return result;
@@ -44,7 +49,7 @@ public class SortingUtil {
     public static int[] randIntArr(int count)
     {
         int[] arr = new int[count];
-        for(int i=0; i<arr.length-1; i++)
+        for(int i=0; i<arr.length; i++)
         {
             arr[i]= (int)(Math.random()*10000);
         }
@@ -61,4 +66,5 @@ public class SortingUtil {
         }
         return result;
     }
+
 }
