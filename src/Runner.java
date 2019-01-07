@@ -10,10 +10,12 @@ public class Runner {
 
         long time= System.nanoTime();
         SortingUtil.bubbleSort(arr);
-        time=System.nanoTime()-time;
+
+
 
         System.out.println("After: ");
         System.out.println(SortingUtil.printArr(arr));
+        time=System.nanoTime()-time;
         System.out.println("Time take: "+ time);
     }
 }

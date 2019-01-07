@@ -46,6 +46,21 @@ public class SortingUtil {
         return result;
     }
 
+    public static boolean checkSum(int[] before, int [] after)
+    {
+        int sum=0;
+        int sum2=0;
+        for(int num: before)
+        {
+            sum+=num;
+        }
+        for(int num: after)
+        {
+            sum2+=num;
+        }
+        return sum==sum2;
+    }
+
     public static int[] randIntArr(int count)
     {
         int[] arr = new int[count];
