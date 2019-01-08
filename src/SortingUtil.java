@@ -31,6 +31,25 @@ public class SortingUtil {
         return arr;
     }
 
+    public static int[] selectionSort(int[] arr)
+    {
+        int currentPos=0;
+        for(int j=0; j<arr.length; j++)
+        {
+            int min=0;
+            for(int i= currentPos; i <arr.length; i++)
+            {
+                if(arr[i]<arr[min])
+                {
+                    min=i;
+                }
+            }
+            swap(arr, currentPos, min);
+            currentPos++;
+        }
+        return arr;
+    }
+
     public static boolean sorted(int[] arr)
     {
         boolean result=true;
